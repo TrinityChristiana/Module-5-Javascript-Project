@@ -1,0 +1,62 @@
+main()
+    //Declare Variables
+    Declare Int fatGrams;
+    Declare Int calories;
+    Declare Real caloriesFat;
+
+    Call welcome();
+    Call getfatGrams(fatGrams);
+    Call getCalories(calories);
+    Call calcCaloriesFat(calories, fatGrams, caloriesFat);
+    Call displayCaloriesFat(caloriesFat);
+    
+    If caloriesFat < 0.3
+        Call displayLowFat
+    End if;
+
+End Module
+
+Module welcome()
+    Display ("Welcome to the Fat Gram Calculator")
+End Module
+
+Module getUserInput(Ref Int fatGrams)
+    Display "How many fat grams does the food item have?"
+    Input fatGrams
+    return fatGrams
+
+    While fatGrams < 0
+       Display "ERROR: Incorrect fat gram value."
+       Display "Enter the correct amount of fat grams."
+       Input fatGrams
+       return fatGrams
+    End While
+End Module
+
+Module getCalories(Ref Int calories)
+    Display "How many calories does the food item have?"
+    Input calories
+    return calories
+
+    While calories < 0 || calories < fatGrams * 9
+       Display "ERROR: Incorrect calories value."
+       Display "Enter the correct amount of calories."
+       Input calories
+       return calories
+    End While
+End Module
+
+Module calcCaloriesFat(calories, fatGrams, Ref Real caloriesFat)
+    set caloriesFat = (fatGrams * 9) / calories
+    return caloriesFat
+End Module
+
+Module displayCaloriesFat(caloriesFat)
+    Display "This food item has " + caloriesFat + "% of calories that come from fat."
+End Module
+
+Module displayLowFat()
+   Display "This food item is low in fat
+End Module
+
+main();
