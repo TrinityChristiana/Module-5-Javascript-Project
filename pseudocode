@@ -8,7 +8,7 @@ main()
     Call getfatGrams(fatGrams);
     Call getCalories(calories);
     Call calcCaloriesFat(calories, fatGrams, caloriesFat);
-    Call displayCaloriesFat(caloriesFat);
+    Call displayOutput(caloriesFat);
     
     If caloriesFat < 0.3
         Call displayLowFat
@@ -20,7 +20,7 @@ Module welcome()
     Display ("Welcome to the Fat Gram Calculator")
 End Module
 
-Module getUserInput(Ref Int fatGrams)
+Module getFa(Ref Int fatGrams)
     Display "How many fat grams does the food item have?"
     Input fatGrams
     return fatGrams
@@ -51,12 +51,9 @@ Module calcCaloriesFat(calories, fatGrams, Ref Real caloriesFat)
     return caloriesFat
 End Module
 
-Module displayCaloriesFat(caloriesFat)
-    Display "This food item has " + caloriesFat + "% of calories that come from fat."
-End Module
-
-Module displayLowFat()
-   Display "This food item is low in fat
-End Module
-
+Module displayOutput(caloriesFat)
+    Display "This food item has " + caloriesFat + "% of calories that come from fat."    
+    If caloriesFat < 0.3
+        Display "This food item is low in fat"
+    End if;
 main();
